@@ -11,3 +11,6 @@ npm
 Тестирование ПО
 AQA on JS
 Git
+
+Контакты:
+www@gmail.com
