@@ -5,7 +5,7 @@ import { CartPage } from '../pages/cart.page';
 import { CheckoutStepOnePage } from '../pages/checkout.overview.page';
 import {CheckoutStepTwoPage } from '../pages/checkout.complete.page';
 import { CheckoutCompletePage } from '../pages/checkout.information.page';
-test.describe.configure({ mode: 'serial' });
+//test.describe.configure({ mode: 'serial' });
 
 test('Успешный логин и проверка страницы товаров', async ({ page }) => {
     // инициализация
