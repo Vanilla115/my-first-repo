@@ -2,7 +2,6 @@
 export class CheckoutStepTwoPage{
   constructor(page) {
     this.page = page;
-    this.orderSummary = page.locator('[data-test="summary_info"]');  
     this.totalPrice = page.locator('[data-test="total-label"]');     
     this.finishButton = page.locator('[data-test="finish"]');        
   }
@@ -17,7 +16,8 @@ export class CheckoutStepTwoPage{
   }
 
 
-  async isSummaryVisible() {
-    return await this.orderSummary.isVisible();
-  }
+async isSummaryVisible() {
+  const summarySection = this.page.locator('.summary_info');
+  return await summarySection.isVisible();
+}
 };
