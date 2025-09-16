@@ -27,7 +27,7 @@ test.describe('API-тесты для Restful-booker', () => {
     expect(response.status()).toBe(200);
 
     const body = await response.json();
-    console.log('Создано:', body);
+    console.log('Создано:', body); // Консоль логи обычно не оставляют в тестах. Их нужно убрать.
 
     expect(body).toHaveProperty('bookingid');
     expect(body.booking.firstname).toBe(bookingData.firstname);
