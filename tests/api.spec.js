@@ -27,7 +27,7 @@ test.describe('API-тесты для Restful-booker', () => {
     expect(response.status()).toBe(200);
 
     const body = await response.json();
-    console.log('Создано:', body);
+
 
     expect(body).toHaveProperty('bookingid');
     expect(body.booking.firstname).toBe(bookingData.firstname);
@@ -36,13 +36,11 @@ test.describe('API-тесты для Restful-booker', () => {
   });
   
  test('Получение информации о бронировании (GET)', async ({ request }) => {
-    console.log(bookingId);
     const response = await request.get(`${baseURL}/booking/${bookingId}`);
 
     expect(response.status()).toBe(200);
 
     const responseBody = await response.json();
-    console.log('Тело ответа:', responseBody);
 
     expect(responseBody.firstname).toBe(bookingData.firstname);
     expect(responseBody.lastname).toBe(bookingData.lastname);
@@ -77,7 +75,6 @@ test.describe('API-тесты для Restful-booker', () => {
 
     expect(response.status()).toBe(200);
     const body = await response.json();
-    console.log('Обновлено:', body);
 
     expect(body.firstname).toBe('Jack');
     expect(body.totalprice).toBe(222);
