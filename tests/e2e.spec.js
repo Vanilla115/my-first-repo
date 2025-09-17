@@ -7,7 +7,7 @@ import {CheckoutStepTwoPage } from '../pages/checkout.complete.page';
 import { CheckoutCompletePage } from '../pages/checkout.information.page';
 //test.describe.configure({ mode: 'serial' });
 
-test('Успешный логин и проверка страницы товаров', async ({ page }) => {
+test('Успешный логин и проверка страницы товаров @ui', async ({ page }) => {
     // инициализация
     const loginPage = new LoginPage (page);
     const productPage = new ProductPage (page);
