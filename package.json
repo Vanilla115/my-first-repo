@@ -3,7 +3,12 @@
   "version": "1.0.0",
   "description": "Привет! Меня зовут Владислав. Я учусь пользоваться Git и GitHub.",
   "main": "index.js",
-  "scripts": {},
+  "scripts": { 
+    "tests:ui": "playwright test --grep @ui", 
+    "tests:api": "playwright test --grep @api", 
+    "tests:all": "playwright test" 
+  },
+
   "repository": {
     "type": "git",
     "url": "git+https://github.com/Vanilla115/test-Playwright-project.git"

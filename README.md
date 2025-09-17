@@ -1,18 +1,16 @@
 # Мой первый проект
-Привет! Меня зовут Владислав. Я учусь пользоваться Git и GitHub.
+Привет! Меня зовут Владислав. 
 
 Список скилов:
-JS
-CSS
-HTML
-React
-Chart.js
-npm
-Тестирование ПО
-AQA on JS
+JS,
+CSS,
+HTML,
+React,
+Chart.js,
+npm,
+Manual QA,
+AQA on JS,
 Git
 
 Контакты:
 www@gmail.com
-
-test rename set-url

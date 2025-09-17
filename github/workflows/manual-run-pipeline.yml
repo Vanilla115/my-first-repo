@@ -1,0 +1,44 @@
+name: Manual Test Run # Название workflow — будет видно в GitHub Actions
+
+on:
+  workflow_dispatch: # триггер ручного запуска 
+
+jobs:
+  run-tests:
+    runs-on: ubuntu-latest # Виртуальная машина на Ubuntu, где будут шаги
+
+    steps:
+      # Шаг 1: Клонируем репозиторий с тестами
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      # Шаг 2: Устанавливаем Node.js
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22.17.0' 
+
+      # Шаг 3: Установка зависимостей проекта (package.json)
+      - name: Install dependencies
+        run: npm install
+
+      # Шаг 4: Установка браузеров Playwright
+      - name: Install Playwright Browsers
+        run: npx playwright install --with-deps
+
+      # Шаг 5: Запуск UI тестов
+      - name: Run UI tests
+        run: npm run tests:ui
+
+      # Шаг 6: Запуск API тестов
+      - name: Run API tests
+        run: npm run tests:api
+
+      # Шаг 7: Загрузка отчёта как артефакта (можно скачать в Actions)
+      - name: Upload test report
+        if: always() # выполнится даже если тесты упали
+        uses: actions/upload-artifact@v4
+        with:
+          name: playwright-report
+          path: playwright-report/
+          retention-days: 7 # хранить артефакт 7 дней
