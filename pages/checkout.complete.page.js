@@ -1,23 +1,16 @@
 
-export class CheckoutStepTwoPage{
+export class CheckoutCompletePage {
   constructor(page) {
     this.page = page;
-    this.totalPrice = page.locator('[data-test="total-label"]');     
-    this.finishButton = page.locator('[data-test="finish"]');        
+    this.completeHeader = page.locator('[data-test="complete-header"]'); 
+    this.backHomeButton = page.locator('[data-test="back-to-products"]');
   }
 
-  async finishCheckout() {
-    await this.finishButton.click();
+  async getCompletionMessage() {
+    return await this.completeHeader.textContent();
   }
 
-
-  async getTotal() {
-    return await this.totalPrice.textContent();
+  async backHome() {
+    await this.backHomeButton.click();
   }
-
-
-async isSummaryVisible() {
-  const summarySection = this.page.locator('.summary_info');
-  return await summarySection.isVisible();
-}
 };

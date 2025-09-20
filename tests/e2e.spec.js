@@ -2,9 +2,9 @@ const { test, expect } = require('@playwright/test');
 import { LoginPage } from '../pages/login.page';
 import { ProductPage } from '../pages/product.page';
 import { CartPage } from '../pages/cart.page';
-import { CheckoutStepOnePage } from '../pages/checkout.overview.page';
-import {CheckoutStepTwoPage } from '../pages/checkout.complete.page';
-import { CheckoutCompletePage } from '../pages/checkout.information.page';
+import { CheckoutStepOnePage } from '../pages/checkout.onePage.page';
+import {CheckoutStepTwoPage } from '../pages/checkout.twoPage.page';
+import { CheckoutCompletePage } from '../pages/checkout.complete.page';
 //test.describe.configure({ mode: 'serial' });
 
 test('Успешный логин и проверка страницы товаров @ui', async ({ page }) => {
@@ -39,7 +39,7 @@ test('Успешный логин и проверка страницы това�
     await cartPage.removeItem(expensiveItemName);
 
     // проверка наличия
-    expect(await cartPage.hasItemAfterDelete(expensiveItemName));
+    await expect(await cartPage.hasItemAfterDelete(expensiveItemName)).toBeFalsy();
 
     // возвращаем товар в корзину
     await productPage.open();
